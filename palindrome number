@@ -1,0 +1,26 @@
+class Solution {
+    public boolean isPalindrome(int n) {
+    // Negative numbers are not palindromes
+    if (n < 0) return false;
+
+    int original = n;
+    int rev = 0;
+
+    while (n != 0) {
+        int digit = n % 10;
+
+        // Overflow check (usually not required for LeetCode palindrome problem)
+        if (rev > Integer.MAX_VALUE / 10 || (rev == Integer.MAX_VALUE / 10 && digit > 7))
+            return false;
+
+        rev = rev * 10 + digit;
+        n /= 10;
+    }
+
+    return original == rev;
+}
+
+}
+
+        
+
